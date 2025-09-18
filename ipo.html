@@ -79,8 +79,8 @@
     /* Logout button */
     .logout-btn {
       position: fixed;
-      bottom: 18px;         /* placed at bottom */
-      left: 50%;            /* horizontally centered */
+      bottom: 18px;         
+      left: 50%;            
       transform: translateX(-50%);
       z-index: 999;
       background: var(--glass-bg);
@@ -203,10 +203,20 @@
     // LOGOUT button handler
     document.getElementById('logoutBtn').addEventListener('click', function (ev) {
       ev.preventDefault();
-      const ok = confirm('⚠️ Want to Log out?');
+      const ok = confirm('⚠️ Want to Log out and close this tab?');
       if (ok) {
         localStorage.removeItem("mobile"); // clear mobile on logout
-        window.location.href = 'pre.html';
+
+        // Try to close window (works only if opened by script)
+        window.open('', '_self');
+        window.close();
+
+        // Fallback: redirect to pre.html if window not closed
+        setTimeout(() => {
+          if (!window.closed) {
+            window.location.href = 'pre.html';
+          }
+        }, 500);
       }
     });
 
@@ -217,7 +227,13 @@
         const shouldLogout = confirm('⚠️ Want to Log out?');
         if (shouldLogout) {
           localStorage.removeItem("mobile");
-          window.location.href = 'login.html';
+          window.open('', '_self');
+          window.close();
+          setTimeout(() => {
+            if (!window.closed) {
+              window.location.href = 'login.html';
+            }
+          }, 500);
         } else {
           history.pushState({onPage: true}, '', location.href);
         }
