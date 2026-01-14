@@ -1,195 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>POADDA | Login / Signup</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>POADDA | Login / Signup</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: "Segoe UI", sans-serif;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
 
-    body {
-      margin: 0;
-      background: #fafafa;
-      min-height: 100vh;
-      display: flex;
-    }
+body {
+  margin: 0;
+  background: #fafafa;
+  min-height: 100vh;
+  display: flex;
+}
 
-    /* ===== LEFT PANEL ===== */
-    .left-panel {
-      width: 30%;
-      background: #ffffff;
-      padding: 35px 22px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border-right: 1px solid #e5e5e5;
-    }
+/* ================= DESKTOP ================= */
+.left-panel {
+  width: 30%;
+  background: #ffffff;
+  padding: 35px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid #e5e5e5;
+}
 
-    .logo {
-      width: 150px;
-      margin-bottom: 35px;
-    }
+.logo {
+  width: 150px;
+  margin-bottom: 35px;
+}
 
-    .nav-card {
-      width: 100%;
-      padding: 16px 18px;
-      margin-bottom: 18px;
-      border-radius: 14px;
-      background: #fdfdfd;
-      border: 1px solid #e0e0e0;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      cursor: pointer;
-      font-size: 17px;
-      font-weight: 600;
-      color: #333;
-      transition: all 0.25s ease;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.06);
-    }
+.nav-card {
+  width: 100%;
+  padding: 16px 18px;
+  margin-bottom: 18px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 600;
+  transition: 0.3s;
+}
 
-    .nav-card i {
-      font-size: 20px;
-      color: #ff4e50;
-    }
+.nav-card i {
+  color: #ff4e50;
+}
 
-    .nav-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 22px rgba(0,0,0,0.12);
-    }
+.nav-card.active {
+  background: linear-gradient(135deg, #f9d423, #ff4e50);
+  color: #fff;
+  border: none;
+}
 
-    .nav-card.active {
-      background: linear-gradient(135deg, #f9d423, #ff4e50);
-      color: #fff;
-      border: none;
-    }
+.nav-card.active i {
+  color: #fff;
+}
 
-    .nav-card.active i {
-      color: #fff;
-    }
+.caption {
+  margin-top: auto;
+  font-size: 20px;
+  color: #777;
+  text-align: center;
+  font-style: italic;
+  font-weight: 600;
+}
 
-    .caption {
-      margin-top: auto;
-      font-size: 20px;
-      color: #777;
-      text-align: center;
-      font-style: italic;
-      font-weight: 600;
-      padding-top: 20px;
-    }
+.right-panel {
+  width: 70%;
+}
 
-    /* ===== RIGHT PANEL ===== */
-    .right-panel {
-      width: 70%;
-      background: #fafafa;
-    }
+iframe {
+  width: 100%;
+  height: 100vh;
+  border: none;
+}
 
-    iframe {
-      width: 100%;
-      height: 100vh;
-      border: none;
-    }
+/* ================= MOBILE APP VIEW ================= */
+@media (max-width: 768px) {
 
-    /* ===== MOBILE VIEW ===== */
-    @media (max-width: 768px) {
-      body {
-        flex-direction: column;
-      }
+  body {
+    flex-direction: column;
+    background: #fff;
+  }
 
-      .left-panel {
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 10px 12px;
-        position: sticky;
-        top: 0;
-        z-index: 10;
-      }
+  .left-panel {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #eee;
+  }
 
-      .logo {
-        width: 95px;
-        margin: 0;
-      }
+  .logo {
+    width: 90px;
+    margin: 0;
+  }
 
-      .nav-card {
-        width: auto;
-        padding: 10px 14px;
-        margin: 0;
-        font-size: 14px;
-        border-radius: 10px;
-        box-shadow: none;
-      }
+  .nav-card {
+    width: auto;
+    padding: 10px 14px;
+    margin: 0;
+    font-size: 14px;
+    border-radius: 10px;
+    box-shadow: none;
+  }
 
-      .nav-card i {
-        font-size: 16px;
-      }
+  .caption {
+    display: none;
+  }
 
-      .caption {
-        display: none;
-      }
+  .right-panel {
+    width: 100%;
+    height: calc(100vh - 58px);
+  }
 
-      .right-panel {
-        width: 100%;
-        height: calc(100vh - 60px);
-      }
+  iframe {
+    height: 100%;
+    overflow: hidden;
+  }
 
-      iframe {
-        height: 100%;
-      }
-    }
-  </style>
+  /* Hide iframe scrollbar */
+  iframe::-webkit-scrollbar {
+    display: none;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- LEFT PANEL -->
-  <div class="left-panel">
-    <img src="logo.png" alt="POADDA Logo" class="logo">
+<!-- TOP / LEFT PANEL -->
+<div class="left-panel">
+  <img src="logo.png" class="logo">
 
-    <div class="nav-card active" onclick="loadPage('login.html', this)">
-      <i class="fa-solid fa-right-to-bracket"></i>
-      Login
-    </div>
-
-    <div class="nav-card" onclick="loadPage('signup.html', this)">
-      <i class="fa-solid fa-user-plus"></i>
-      Signup
-    </div>
-
-    <div class="caption">
-      Practice makes you ready to win
-    </div>
+  <div class="nav-card active" onclick="loadPage('login.html', this)" id="loginBtn">
+    <i class="fa-solid fa-right-to-bracket"></i> Login
   </div>
 
-  <!-- RIGHT PANEL -->
-  <div class="right-panel">
-    <iframe id="contentFrame" src="login.html"></iframe>
+  <div class="nav-card" onclick="loadPage('signup.html', this)" id="signupBtn">
+    <i class="fa-solid fa-user-plus"></i> Signup
   </div>
 
-  <script>
-    function loadPage(page, element) {
-      document.getElementById("contentFrame").src = page;
+  <div class="caption">Practice makes you ready to win</div>
+</div>
 
-      document.querySelectorAll(".nav-card").forEach(card => {
-        card.classList.remove("active");
-      });
+<!-- CONTENT -->
+<div class="right-panel" id="swipeArea">
+  <iframe id="contentFrame" src="login.html"></iframe>
+</div>
 
-      element.classList.add("active");
+<script>
+let currentPage = "login";
+let startX = 0;
+
+function loadPage(page, el) {
+  currentPage = page.includes("login") ? "login" : "signup";
+  document.getElementById("contentFrame").src = page;
+
+  document.querySelectorAll(".nav-card").forEach(c => c.classList.remove("active"));
+  el.classList.add("active");
+}
+
+/* ===== SWIPE GESTURE ===== */
+const swipeArea = document.getElementById("swipeArea");
+
+swipeArea.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+
+swipeArea.addEventListener("touchend", e => {
+  let endX = e.changedTouches[0].clientX;
+  let diff = startX - endX;
+
+  if (Math.abs(diff) > 60) {
+    if (diff > 0 && currentPage === "login") {
+      loadPage("signup.html", document.getElementById("signupBtn"));
     }
+    if (diff < 0 && currentPage === "signup") {
+      loadPage("login.html", document.getElementById("loginBtn"));
+    }
+  }
+});
 
-    window.addEventListener("message", function (event) {
-      if (event.data === "login-success") {
-        window.location.href = "dash.html";
-      }
-    });
-  </script>
+/* ===== LOGIN SUCCESS ===== */
+window.addEventListener("message", function (event) {
+  if (event.data === "login-success") {
+    window.location.href = "dash.html";
+  }
+});
+</script>
 
 </body>
 </html>
